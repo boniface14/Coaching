@@ -1,0 +1,93 @@
+//11.require and make all the packages / libraries to be used in this project
+const express = require('express');
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost:27017/users",()=>{
+    console.log("successfully connected")
+});
+
+const userSchema = new mongoose.Schema({
+  username: {type:String,unique:true,required:"username"},  
+  password: {type:String,required:"password"}  ,
+  email: {type:String,required:"password"},
+});
+const userModel = mongoose.model("user",userSchema);
+ //2. create a handler to listen to expresss features
+let server = express();
+const path = require('path');
+ const bodyParser = require("body-parser");
+ server.use(bodyParser.json())
+ server.use(bodyParser.urlencoded({extended:true}))
+ 
+
+
+
+
+
+
+
+
+// configure the server to be able to listen for requests
+server.listen(4000, () => {
+    console.log("server is listening................");
+});
+
+//3.set the engine that is to render files
+server.set("view engine", "pug");
+
+//4.specify where the engine is to pick views 
+//compile them to html and then render them
+//or serve them to the client application
+let joinedpath = path.join(__dirname, "views");
+server.set("views", joinedpath);
+
+
+// generating paths/routes
+// server.route('/',(req,res)=>{
+//     res.send("hey,iam working")
+
+// });
+//sends the respons message in the browser
+// server.get('/',(req,res)=>{
+//     res.send("hey,iam working as a default")
+// });
+
+/*
+1.products
+2.services
+3.aboutUs
+4.contact
+5.Home /index
+*/
+
+
+// for home page
+server.get('/Home', (req, res) => {
+    res.send("This is a home page")
+
+});
+// product page
+server.get('/products', (req, res) => {
+    res.send("This is a products page")
+
+});
+// services page
+server.get('/services', (req, res) => {
+    res.send("This is a services page")
+
+});
+server.get('/aboutUs', (req, res) => {
+    res.send("AboutUs")
+});
+
+
+//gives u the form in the browser
+server.get('/register',(req,res)=>{
+    res.render('register_form')
+})
+
+
+//picks the data from the form
+server.post('/register',(req,res)=>{
+    res.send("you have been successfully registered")
+    console.log(req.body.firstname)
+})

@@ -984,7 +984,7 @@ console.log(allNames)
 //let myValidator=/^[a-zA-Z]+[0-9]+([a-zA-Z$_.-]+)?$/ // grouping expressions with a bracket
 //console.log(myValidator.test(username));
 
-let username="Boniface14@gmail.com"
-let myValidator=/^[a-zA-Z]+([0-9$&]+)+[a-zA-Z]+.[a-zA-Z]+[2,3]+$/ // grouping expressions with a bracket
-console.log(myValidator.test(username));
+//let username="Boniface14@gmail.com"
+//let myValidator=/^[a-zA-Z]+([0-9$&]+)+[a-zA-Z]+.[a-zA-Z]+[2,3]+$/ // grouping expressions with a bracket
+//console.log(myValidator.test(username));
 
