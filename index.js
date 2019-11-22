@@ -88,6 +88,31 @@ server.get('/register',(req,res)=>{
 
 //picks the data from the form
 server.post('/register',(req,res)=>{
+    res.json{
+        "registration status","success"
+        "developer","boni","firstname";req.body.firstname
+    }
     res.send("you have been successfully registered")
     console.log(req.body.firstname)
 })
+
+/* >show databases or >show dbs  -shows you the databases
+admin           0.000GB
+config          0.000GB
+images          0.000GB
+local           0.000GB
+node-demo       0.000GB
+test-db         0.000GB
+users           0.000GB
+zooahackerthon  0.000GB
+
+>use node-demo      -checks if u have that database and then adds it for use renders it ready for use else,
+it will first create it
+>show collections   -much like a table in sql
+>db   -returns the name of the database currently being used
+
+or db.createCollection(<<collectionName>>) - -creates a collection in a database eg { "ok" : 1 }
+>show collections   -shows all collections in a database
+>db.<<collectionName>>.insert({<<key>>:"<<value>>""}) -inserts properties in a collection 
+ >db.student.find().pretty()
+ >db.<<collectionName>>.find().pretty() -organises the fields in tablar n more organised way
