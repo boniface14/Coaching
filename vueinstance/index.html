@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+       <div v-if="display">
+            <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>DOB</th>
+                    </tr>
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{gender}}</td>
+                        <td>{{ dateOfBirth}}</td>
+                    </tr>
+                </table>
+                
+       </div>
+    </div>
+    <button v-on:click="greetMethod">Greet</button>
+    <button v-on:click=" displayInfor">display Info</button>
+
+    <!--       script initiation.js-->
+    <script src="./vue.js"></script>
+    <script lang="javascript">
+        new Vue({
+            el: "#app",
+            data: {
+                name: "Boni",
+                gender: " male",
+                dateOfBirth: "13081988",
+                displayInfor: false
+            },
+
+            //   methods: {
+            //      greetMethod: function () {
+            //          alert('am alive');
+            //      }
+            // }
+            methods: {
+                greetMethod: function () {
+                    alert('hello catalyst');
+                },
+                displayInfor: function () {
+                    this.display = !this.display;
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

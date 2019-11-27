@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+        <!-- <table class="table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Date of birth</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>{{name}}</td>
+                <td>{{gender}}</td>
+                <td>{{dob}}</td>
+                <td>{{description}}</td>
+            </tr>
+        </table> -->
+        <!--Controlling the div inthat our information is hidden until we click -->
+        <div v-if="display">
+            <span><b>Name :</b></span><span>{{name}}</span><br>
+            <span><b>Gender :</b></span><span>{{gender}}</span><br>
+            <span><b>Date of Birth :</b></span><span>{{dob}}</span><br>
+            <span><b>Description :</b></span><span>{{description}}</span><br>
+        </div><br>
+
+        <!--defining the event listener-->
+        <button v-on:click="greetMethod">Greet</button> 
+        <!-- <button v-on:click="displayInfo">display Info</button>  -->
+        <button v-on:click="displayInfo">{{caption}}</button> 
+        
+    </div>
+    <script src="./vue.js"></script>
+    <script lang="javascript">
+      //instantiating vue
+      new Vue({
+          el:"#app",
+          data:{
+              name:"John Doe",
+              gender:"male",
+              dob :"14/02/2002",
+              description : "unknown for now",
+              display:false,
+              caption:"display Info"
+          },
+          methods:{
+              greetMethod:function(){
+                  alert(`Hello!!!!`)
+              },
+              displayInfo:function(){
+                  this.display = !this.display;
+                  this.caption=(this.display)? "Hide info":display;
+              }
+          }
+      });
+    </script>
+  </body>
+</html>
